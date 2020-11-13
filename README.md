@@ -11,7 +11,7 @@
 | last_name  | string | null: false |
 | first_kana | string | null: false |
 | last_kana  | string | null: false |
-| birthday   | string | null: false |
+| birthday   | data   | null: false |
 
 ### Association
 
@@ -26,13 +26,13 @@
 | title      | string     | null: false                        |
 | explan     | text       | null: false                        |
 | image      | ActiveStorageで実装                              |
-| user_id    | references | foreign_key: true                  |
+| user       | references | foreign_key: true                  |
 | category   | string     | null: false                        |
 | status     | string     | null: false                        |
 | price      | string     | null: false                        |
-| send_fee   | string     | null: false                        |
-| send_area  | string     | null: false                        |
-| send_day   | string     | null: false                        |
+| send_fee   | integer    | null: false                        |
+| send_area  | integer    | null: false                        |
+| send_day   | integer    | null: false                        |
 
 ### Association
 
@@ -44,30 +44,30 @@
 
 | Column     | Type       | Options           |
 | ---------- | ---------- | ----------------- |
-| item_id    | references | foreign_key: true |
-| deli_id    | references | foreign_key: true |
-| user_id    | references | foreign_key: true |
+| item       | references | foreign_key: true |
+| user       | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 - has_one :deli
-- belings_to :user
+- belongs_to :user
 
 ## deli テーブル
 
-| Column      | Type    | Options     |
-| ----------- | ------- | ----------- |
-| deli_post   | integer | null: false |
-| deli_area   | string  | null: false |
-| deli_city   | string  | null: false |
-| deli_number | integer | null: false |
-| deli_bill   | string  | null: false |
-| deli_phone  | integer | null: false |
+| Column      | Type       | Options           |
+| ----------- | -----------| ----------------- |
+| deli_post   | string     | null: false       |
+| deli_area   | string     | null: false       |
+| deli_city   | string     | null: false       |
+| deli_number | integer    | null: false       |
+| deli_bill   | string     |                   |
+| deli_phone  | string     | null: false       |
+| bought      | references | foreign_key: true |
 
 ### Association
 
-- belings_to :bought
+- belongs_to :bought
 
 ## comments テーブル
 
@@ -79,5 +79,5 @@
 
 ### Association
 
-- belongs_to :items
+- belongs_to :item
 - belongs_to :user
