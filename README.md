@@ -21,18 +21,18 @@
 
 ## items テーブル
 
-| Column    | Type       | Options                            |
-| --------- | ---------- | ---------------------------------- |
-| title     | string     | null: false                        |
-| explan    | text       | null: false                        |
-| image     | ActiveStorageで実装                              |
-| user      | references | foreign_key: true                  |
-| price     | integer    | null: false                        |
-| category  | integer    | null: false                        |
-| status    | integer    | null: false                        |
-| send_fee  | integer    | null: false                        |
-| send_area | integer    | null: false                        |
-| send_day  | integer    | null: false                        |
+| Column       | Type       | Options                            |
+| ------------ | ---------- | ---------------------------------- |
+| title        | string     | null: false                        |
+| explan       | text       | null: false                        |
+| image        | ActiveStorageで実装                              |
+| user         | references | foreign_key: true                  |
+| price        | integer    | null: false                        |
+| category_id  | integer    | null: false                        |
+| status_id    | integer    | null: false                        |
+| send_fee_id  | integer    | null: false                        |
+| send_area_id | integer    | null: false                        |
+| send_day_id  | integer    | null: false                        |
 
 ### Association
 
@@ -55,15 +55,15 @@
 
 ## deli テーブル
 
-| Colum  | Type       | Options           |
-| ------ | -----------| ----------------- |
-| post   | string     | null: false       |
-| area   | integer    | null: false       |
-| city   | string     | null: false       |
-| number | string     | null: false       |
-| bill   | string     |                   |
-| phone  | string     | null: false       |
-| bought | references | foreign_key: true |
+| Colum          | Type       | Options           |
+| -------------- | -----------| ----------------- |
+| post           | string     | null: false       |
+| send_area_id   | integer    | null: false       |
+| city           | string     | null: false       |
+| number         | string     | null: false       |
+| bill           | string     |                   |
+| phone          | string     | null: false       |
+| bought         | references | foreign_key: true |
 
 ### Association
 
