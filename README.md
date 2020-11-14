@@ -11,7 +11,7 @@
 | last_name            | string | null: false |
 | first_kana           | string | null: false |
 | last_kana            | string | null: false |
-| birthday             | data   | null: false |
+| birthday             | date   | null: false |
 
 ### Association
 
@@ -21,12 +21,30 @@
 
 ## items テーブル
 
+| Column        | Type       | Options                            |
+| ------------- | ---------- | ---------------------------------- |
+| title         | string     | null: false                        |
+| explan        | text       | null: false                        |
+| image         | ActiveStorageで実装                              |
+| user          | references | foreign_key: true                  |
+| category_id   | integer    | null: false                        |
+| status_id     | integer    | null: false                        |
+| price_id      | integer    | null: false                        |
+| send_fee_id   | integer    | null: false                        |
+| send_area_id  | integer    | null: false                        |
+| send_day_id   | integer    | null: false                        |
+
+### Association
+
+- belongs_to :user
+- has_many :comments
+- has_one :bought
+- belongs_to :genre
+
+## genres テーブル
+
 | Column     | Type       | Options                            |
 | ---------- | ---------- | ---------------------------------- |
-| title      | string     | null: false                        |
-| explan     | text       | null: false                        |
-| image      | ActiveStorageで実装                              |
-| user       | references | foreign_key: true                  |
 | category   | integer    | null: false                        |
 | status     | integer    | null: false                        |
 | price      | integer    | null: false                        |
@@ -36,9 +54,8 @@
 
 ### Association
 
-- belongs_to :user
-- has_many :comments
-- belongs_to :bought
+- has_many :items
+
 
 ## bought テーブル
 
