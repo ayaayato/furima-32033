@@ -27,9 +27,9 @@
 | explan        | text       | null: false                        |
 | image         | ActiveStorageで実装                              |
 | user          | references | foreign_key: true                  |
+| price         | integer    | null: false                        |
 | category_id   | integer    | null: false                        |
 | status_id     | integer    | null: false                        |
-| price_id      | integer    | null: false                        |
 | send_fee_id   | integer    | null: false                        |
 | send_area_id  | integer    | null: false                        |
 | send_day_id   | integer    | null: false                        |
@@ -47,7 +47,6 @@
 | ---------- | ---------- | ---------------------------------- |
 | category   | integer    | null: false                        |
 | status     | integer    | null: false                        |
-| price      | integer    | null: false                        |
 | send_fee   | integer    | null: false                        |
 | send_area  | integer    | null: false                        |
 | send_day   | integer    | null: false                        |
