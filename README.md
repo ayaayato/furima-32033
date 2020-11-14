@@ -2,22 +2,22 @@
 
 ## users テーブル
 
-| Column     | Type   | Options     |
-| ---------- | ------ | ----------- |
-| email      | string | null: false |
-| password   | string | null: false |
-| name       | string | null: false |
-| first_name | string | null: false |
-| last_name  | string | null: false |
-| first_kana | string | null: false |
-| last_kana  | string | null: false |
-| birthday   | data   | null: false |
+| Column               | Type   | Options     |
+| -------------------- | ------ | ----------- |
+| email                | string | null: false |
+| encrypted_password   | string | null: false |
+| name                 | string | null: false |
+| first_name           | string | null: false |
+| last_name            | string | null: false |
+| first_kana           | string | null: false |
+| last_kana            | string | null: false |
+| birthday             | data   | null: false |
 
 ### Association
 
 - has_many :items
 - has_many :comments
-- has_many :bought
+- has_many :boughts
 
 ## items テーブル
 
@@ -27,9 +27,9 @@
 | explan     | text       | null: false                        |
 | image      | ActiveStorageで実装                              |
 | user       | references | foreign_key: true                  |
-| category   | string     | null: false                        |
-| status     | string     | null: false                        |
-| price      | string     | null: false                        |
+| category   | integer    | null: false                        |
+| status     | integer    | null: false                        |
+| price      | integer    | null: false                        |
 | send_fee   | integer    | null: false                        |
 | send_area  | integer    | null: false                        |
 | send_day   | integer    | null: false                        |
@@ -38,7 +38,7 @@
 
 - belongs_to :user
 - has_many :comments
-- 
+- belongs_to :bought
 
 ## bought テーブル
 
@@ -58,9 +58,9 @@
 | Column      | Type       | Options           |
 | ----------- | -----------| ----------------- |
 | deli_post   | string     | null: false       |
-| deli_area   | string     | null: false       |
+| deli_area   | integer    | null: false       |
 | deli_city   | string     | null: false       |
-| deli_number | integer    | null: false       |
+| deli_number | string     | null: false       |
 | deli_bill   | string     |                   |
 | deli_phone  | string     | null: false       |
 | bought      | references | foreign_key: true |
