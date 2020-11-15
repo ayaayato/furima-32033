@@ -102,9 +102,10 @@ describe User do
         expect(@user.errors.full_messages).to include("First name is invalid")
       end
       it "emailに@が含まれていない場合は登録できない" do
-        @user.email = "sample_sample.com"
-        @user.valid?
-        expect(current_path).to eq new_user_registration_path
+        visit '/users/sign_up'
+        fill_in "email", with: 'sample_sample.com'
+        click_button '会員登録'
+        expect(current_path).to eq "/users"
       end
     end
   end
