@@ -10,11 +10,11 @@ class Item < ApplicationRecord
   #has_one :bought
 
   with_options presence: true do
-    validates :category
-    validates :status
-    validates :send_area
-    validates :send_fee
-    validates :send_day
+    validates :category_id
+    validates :status_id
+    validates :send_area_id
+    validates :send_fee_id
+    validates :send_day_id
     validates :image
     validates :title
     validates :explan
@@ -22,11 +22,11 @@ class Item < ApplicationRecord
   end
 
   with_options numericality: { other_than: 1 } do
-    validates :category
-    validates :status
-    validates :send_area
-    validates :send_fee
-    validates :send_day
+    validates :category_id
+    validates :status_id
+    validates :send_area_id
+    validates :send_fee_id
+    validates :send_day_id
   end
 
 

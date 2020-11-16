@@ -1,10 +1,23 @@
 class ItemsController < ApplicationController
 
   def index 
+    @item = Item.all
   end
 
   def new
     @item = Item.new
+    unless user_signed_in?
+      redirect_to "/users/sign_in"
+    end
+  end
+
+  def create
+    @items = Item.new(item_params)
+   if @items.save
+    redirect_to root_path
+   else
+   render :new
+   end
   end
   
 
