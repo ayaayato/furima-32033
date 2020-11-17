@@ -24,25 +24,50 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Image can't be blank")
       end
+      it "status_idが空だと登録できない" do
+        @item.status_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status can't be blank")
+      end
       it "status_idが選択されていないと登録できない" do
         @item.status_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Status must be other than 1")
+      end
+      it "category_idが空だと登録できない" do
+        @item.category_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it "category_idが選択されていないと登録できない" do
         @item.category_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
+      it "send_area_idが空だと登録できない" do
+        @item.send_area_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Send area can't be blank")
+      end
       it "send_area_idが選択されていないと登録できない" do
         @item.send_area_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Send area must be other than 1")
       end
+      it "send_fee_idが空だと登録できない" do
+        @item.send_fee_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Send fee can't be blank")
+      end
       it "send_fee_idが選択されていないと登録できない" do
         @item.send_fee_id = '1'
         @item.valid?
         expect(@item.errors.full_messages).to include("Send fee must be other than 1")
+      end
+      it "send_day_idが空だと登録できない" do
+        @item.send_day_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Send day can't be blank")
       end
       it "send_day_idが選択されていないと登録できない" do
         @item.send_day_id = '1'
