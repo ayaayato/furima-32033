@@ -17,7 +17,7 @@
 
 - has_many :items
 - has_many :comments
-- has_many :boughts
+- has_many :orders
 
 ## items テーブル
 
@@ -38,9 +38,9 @@
 
 - belongs_to :user
 - has_many :comments
-- has_one :bought
+- has_one :order
 
-## bought テーブル
+## order テーブル
 
 | Column     | Type       | Options           |
 | ---------- | ---------- | ----------------- |
@@ -63,11 +63,11 @@
 | number         | string     | null: false       |
 | bill           | string     |                   |
 | phone          | string     | null: false       |
-| bought         | references | foreign_key: true |
+| order          | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :bought
+- belongs_to :order
 
 ## comments テーブル
 
