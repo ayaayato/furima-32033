@@ -36,6 +36,6 @@ class User < ApplicationRecord
             #messege: "requires the use of both numbers and alphabets"
             }
 
- #has_many :items
+ has_many :items
  #has_many :boughts
 end
