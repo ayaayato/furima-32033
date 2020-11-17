@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :create]
   before_action :exile_to_index, only: [:edit]
+  before_action :find_item, only: [:show, :edit, :update]
 
   def index 
     @items = Item.all.order("created_at DESC")
@@ -20,15 +21,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(item_params)
   if @item.save
      redirect_to item_path(@item.id)
@@ -51,4 +49,8 @@ class ItemsController < ApplicationController
      end
   end
   
+  def find_item
+    @item = Item.find(params[:id])
+  end
+
 end
