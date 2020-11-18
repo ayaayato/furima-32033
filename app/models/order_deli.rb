@@ -4,11 +4,11 @@ class OrderDeli
   attr_accessor :postal, :city, :banchi, :bill, :send_area_id, :phone, :item_id, :user_id #:token
 
   with_options presence: true do
-    validates :postal
+    validates :postal, format: {with: /\d+-\d+/}
     validates :city
     validates :banchi
-    validates :phone
-    validates :send_area_id, numericality:{other_than: 1}
+    validates :phone, length: {maximum: 11}, numericality: true
+    validates :send_area_id, numericality: {other_than: 1}
   end
 
   def save
