@@ -7,7 +7,7 @@ class OrderDeli
     validates :postal, format: {with: /\d+-\d+/}
     validates :city
     validates :banchi
-    validates :phone, length: {maximum: 11}, numericality: true
+    validates :phone, length: {maximum: 11}, numericality: true, format: {with: /\A[0-9]+\z/}
     validates :send_area_id, numericality: {other_than: 1}
   end
 

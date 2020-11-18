@@ -60,7 +60,7 @@
 | postal         | string     | null: false       |
 | send_area_id   | integer    | null: false       |
 | city           | string     | null: false       |
-| number         | string     | null: false       |
+| banchi         | string     | null: false       |
 | bill           | string     |                   |
 | phone          | string     | null: false       |
 | order          | references | foreign_key: true |
