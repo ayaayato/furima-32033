@@ -57,7 +57,7 @@
 
 | Colum          | Type       | Options           |
 | -------------- | -----------| ----------------- |
-| post           | string     | null: false       |
+| postal         | string     | null: false       |
 | send_area_id   | integer    | null: false       |
 | city           | string     | null: false       |
 | number         | string     | null: false       |

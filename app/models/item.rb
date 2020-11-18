@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   belongs_to :send_day
   has_one_attached :image
   belongs_to :user
-  #has_one :bought
+  has_one :order
 
   with_options presence: true do
     validates :category_id
