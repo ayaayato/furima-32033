@@ -11,6 +11,8 @@ class OrderDeli
     validates :send_area_id, numericality: {other_than: 1}
     validates :token
     validates :price
+    validates :item_id
+    validates :user_id
     
   end
 
