@@ -17,7 +17,7 @@
 
 - has_many :items
 - has_many :comments
-- has_many :boughts
+- has_many :orders
 
 ## items テーブル
 
@@ -38,9 +38,9 @@
 
 - belongs_to :user
 - has_many :comments
-- has_one :bought
+- has_one :order
 
-## bought テーブル
+## order テーブル
 
 | Column     | Type       | Options           |
 | ---------- | ---------- | ----------------- |
@@ -57,17 +57,17 @@
 
 | Colum          | Type       | Options           |
 | -------------- | -----------| ----------------- |
-| post           | string     | null: false       |
+| postal         | string     | null: false       |
 | send_area_id   | integer    | null: false       |
 | city           | string     | null: false       |
-| number         | string     | null: false       |
+| banchi         | string     | null: false       |
 | bill           | string     |                   |
 | phone          | string     | null: false       |
-| bought         | references | foreign_key: true |
+| order          | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :bought
+- belongs_to :order
 
 ## comments テーブル
 
