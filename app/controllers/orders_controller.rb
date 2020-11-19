@@ -1,10 +1,9 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :create]
-
+  before_action :find_item, only: [:index, :create]
 
 
   def index
-    find_item
     move_to_index
     if current_user.id == @item.user_id
       redirect_to root_path
@@ -13,7 +12,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    find_item
     @order_deli = OrderDeli.new(order_params)
     if @order_deli.valid?
       pay_item
