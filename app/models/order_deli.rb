@@ -1,7 +1,7 @@
 class OrderDeli
   include ActiveModel::Model
 
-  attr_accessor :postal, :city, :banchi, :bill, :send_area_id, :phone, :item_id, :user_id #:token
+  attr_accessor :postal, :city, :banchi, :bill, :send_area_id, :phone, :item_id, :user_id, :token, :price
 
   with_options presence: true do
     validates :postal, format: {with: /\d+-\d+/}
@@ -9,6 +9,9 @@ class OrderDeli
     validates :banchi
     validates :phone, length: {maximum: 11}, numericality: true, format: {with: /\A[0-9]+\z/}
     validates :send_area_id, numericality: {other_than: 1}
+    validates :token
+    validates :price
+    
   end
 
   def save

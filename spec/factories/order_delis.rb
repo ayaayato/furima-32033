@@ -9,6 +9,8 @@ FactoryBot.define do
     phone             {"090123456"}
     user_id           {1}
     item_id           {1}
+    token             {"tok_abcdefghijk00000000000000000"}
+    price             {1111}
     
   end
 end
